@@ -9,6 +9,7 @@ import {
   KeyboardDatePicker,
 } from "@material-ui/pickers";
 import Button from "@material-ui/core/Button";
+import Bookings from "../Bookings/Bookings";
 
 const Book = () => {
   const [selectedDate, setSelectedDate] = useState({
@@ -80,6 +81,7 @@ const Book = () => {
       <Button onClick={handleBooking} variant="contained" color="primary">
         Primary
       </Button>
+      <Bookings></Bookings>
     </div>
   );
 };
