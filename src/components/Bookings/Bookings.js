@@ -6,7 +6,13 @@ const Bookings = () => {
   const [bookings, setBookings] = useState([]);
   const [loggedInUser, setLoggedInUser] = useContext(UserContext);
   useEffect(() => {
-    fetch("http://localhost:8080/bookings?email=" + loggedInUser.email)
+    fetch("http://localhost:8080/bookings?email=" + loggedInUser.email, {
+      method: "get",
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `Bearer  ${sessionStorage.getItem("token")}`,
+      },
+    })
       .then((response) => response.json())
       .then((data) => setBookings(data));
   }, []);
