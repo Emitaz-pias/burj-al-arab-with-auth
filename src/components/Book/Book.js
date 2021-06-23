@@ -28,7 +28,19 @@ const Book = () => {
   };
   const [loggedInUser, setLoggedInUser] = useContext(UserContext);
   const { bedType } = useParams();
-  const handleBooking = () => {};
+  const handleBooking = () => {
+    const booking = { ...loggedInUser, ...selectedDate };
+    fetch("http://localhost:8080/addBooking", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: JSON.stringify(booking),
+    })
+      .then((res) => res.json())
+      .then((booking) => console.log("booking success", booking));
+  };
   return (
     <div style={{ textAlign: "center" }}>
       <h1>
