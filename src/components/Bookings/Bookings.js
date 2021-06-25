@@ -10,7 +10,7 @@ const Bookings = () => {
       method: "get",
       headers: {
         "Content-Type": "application/json",
-        authorization: `Bearer  ${sessionStorage.getItem("token")}`,
+        authorization: `Bearer ${sessionStorage.getItem("token")}`,
       },
     })
       .then((response) => response.json())
